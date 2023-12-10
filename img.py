@@ -69,7 +69,6 @@ def add_text_to_image(image_path, text):
     # Xác định kích cỡ font chữ khi càng nhiều chữ, chiều dài càng tăng
     ratio = 1
     if max_text_count < text_count:
-        # font_size = ((max_width // text_count) * (font_size // 10)) // text_count + font_factor(font_size // 10, text_count, max_text_count)
         ratio = max_width / draw.textlength(longest, font)
         font_size = int(font_size * ratio)
 
@@ -127,6 +126,5 @@ if __name__ == "__main__":
 
     add_text_to_image("sample.jpg", "Xin chào!TTTTTTTT\nTTTTTAbc123123123\n9128AAAAAAAAAA")
     # Xin chào! Tất cả mọi người"
-
 
     print("Chuỗi đã được thêm vào ảnh. Ảnh mới đã được lưu với tên 'output_image.jpg'.")
