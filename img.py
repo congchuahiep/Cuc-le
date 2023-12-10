@@ -1,20 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
 
-def font_factor(init_font, text_count, max_text_count):
-    max = init_font // 2
-    x = text_count - max_text_count
-    
-    factor = 0
-    i = 0
-
-    for j in range(x):
-        factor += (init_font - pow(2, i)) // pow(2, i)
-        print((init_font - pow(2, i)) // pow(2, i))
-        if j % 2 == 0 or j == 0:
-            i += 1
-    
-    return factor
-
 def add_text_to_image(image_path, text):
 
     # Mở ảnh            
@@ -61,14 +46,6 @@ def add_text_to_image(image_path, text):
     lines = text.split('\n')
     longest = max(filter(lambda line: draw.textlength(line, font), lines), key=len)
 
-    # Xác định vị trí của chữ khi có nhiều dòng
-    text_height_pos_factor = 0
-    for i in range(1, len(lines) + 1):
-        text_height_pos_factor += 1.5 / i
-
-    # Xác định vị trí của chữ khi chữ nhỏ
-    text_height_pos_factor += origin_font/font_size - 1
-
     # Xác định độ dài của chuỗi khi chúng đến giới hạn viền của ảnh
     # Khúc này để xác định lúc nào chữ sẽ bắt đầu thu nhỏ lại
     max_text_count = 0
@@ -94,20 +71,22 @@ def add_text_to_image(image_path, text):
     font = ImageFont.load_default()
     
     # Chỉnh font lại sau khi đã có kích cỡ mới
+    font_size = int(font_size)
     font = ImageFont.truetype("Bungee.ttf", font_size)
 
     # Vẽ văn bản lên ảnh
-    draw.multiline_text((text_len, frame_height // text_height_pos_factor), text, font=font, fill="white", anchor="ms", spacing=0, stroke_width=font_size//20, stroke_fill="black", align="center")
-    
+    draw.multiline_text((text_len, frame_height // (len(lines) + 1)), text, font=font, fill="white", anchor="ms", spacing=font_size//6, stroke_width=font_size//20, stroke_fill="black", align="center")
+
     # Lưu ảnh đã chỉnh sửa
     img.save("output_image.jpg")              
     
 
 if __name__ == "__main__":
 
-    add_text_to_image("sample.jpg", "Xin chào!\n Tất cả mọi người, lại là mình đâyyyy mình hôm nay rất vui")
+    add_text_to_image("sample-11.jpg", "Xin chào!\n Tất cả mọi người, lại là mình đâyyyy mình hôm nay rất vui")
     # Xin chào! Tất cả mọi người
     # TTTTT
     # Xin chào!TTTTTTTTTTTTTTTTTT TT
+    # Xin chào!\n Tất cả mọi người, lại là mình đâyyyy mình hôm nay rất vui
 
     print("Chuỗi đã được thêm vào ảnh. Ảnh mới đã được lưu với tên 'output_image.jpg'.")
