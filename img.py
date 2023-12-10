@@ -32,20 +32,45 @@ def add_text_to_image(image_path, text):
         font_size = img.height // 6.75
     origin_font = font_size
 
-    print(font_size)
-    
-    print(text_count)
+    # Tìm thử xem, với kích cỡ của ảnh và kích cỡ font thì một dòng có thể chứa tối đa bao nhiêu từ
+    demo_text = 'w'
+    max_letter_in_line = 0
+    font = ImageFont.truetype("Bungee.ttf", font_size // 3)
+    while draw.textlength(demo_text[:max_letter_in_line], font) < img.width - img.width * 0.1:
+        demo_text += 'm'
+        max_letter_in_line += 1
+    max_letter_in_line -= 1
+
+    # Tự động chia dòng
+    words = text.split(' ')
+    text = ''
+    temp = 0
+    for word in words:
+        text += word
+        if len(text) - temp >= max_letter_in_line:
+            text += '\n'
+            temp = len(text) 
+        elif '\n' in word:
+            temp = len(text)
+        else:
+            text += ' '
+
+    font = ImageFont.truetype("Bungee.ttf", font_size)
 
     # Tìm dòng dài nhất trong chuỗi để làm mẫu tham chiếu cho các dòng khác
     lines = text.split('\n')
-    print(lines)
+    longest = max(filter(lambda line: draw.textlength(line, font), lines), key=len)
 
-    longest = max(filter(lambda line: len(line) > 0, lines), key=len)
-    print(longest)
+    # Xác định vị trí của chữ khi có nhiều dòng
+    text_height_pos_factor = 0
+    for i in range(1, len(lines) + 1):
+        text_height_pos_factor += 1.5 / i
 
+    # Xác định vị trí của chữ khi chữ nhỏ
+    text_height_pos_factor += origin_font/font_size - 1
 
     # Xác định độ dài của chuỗi khi chúng đến giới hạn viền của ảnh
-    font = ImageFont.truetype("Bungee.ttf", font_size)
+    # Khúc này để xác định lúc nào chữ sẽ bắt đầu thu nhỏ lại
     max_text_count = 0
     if draw.textlength(longest, font) > img.width:
         while draw.textlength(longest[:max_text_count], font) < img.width:
@@ -55,16 +80,6 @@ def add_text_to_image(image_path, text):
     else:
         max_text_count = text_count
         max_width = draw.textlength(longest, font)
-    
-    text_box = draw.textbbox((0, 0), text, font)
-
-    # Kích thước của văn bản
-    text_width = text_box[2] - text_box[0]
-    text_height = text_box[3] - text_box[1]
-    print("width: ", text_width)
-    print("height: ", text_height)
-    print(max_text_count)
-    print(max_width)
 
     # Xác định kích cỡ font chữ khi càng nhiều chữ, chiều dài càng tăng
     ratio = 1
@@ -74,49 +89,15 @@ def add_text_to_image(image_path, text):
 
     # Tính toán kích thước khung
     frame_height = img.height // 3
-    frame_width = img.width
     
     # Sử dụng font mặc định
     font = ImageFont.load_default()
     
-    # Chỉnh font
-    font = ImageFont.truetype("Bungee.ttf", font_size)
-    text_length = draw.textlength(longest, font)
-
-    print(text_length)
-
-    # Xác định box vẽ
-    text_left, text_top = draw.textbbox((0, 0), text, font)[:2]
-
-    print(text_left)
-    print(text_top)
-    print(font_size)
-    
-    # Tính toán vị trí của khung
-    frame_x = 0
-    frame_y = 0
-
-    # Vẽ khung
-    draw.rectangle([frame_x, frame_y, frame_x + frame_width, frame_y + frame_height], outline="red", width=2)
-
-    # Xác định vị trí của chữ khi có nhiều dòng
-    text_height_pos_factor = 0
-    for i in range(1, len(lines) + 1):
-        text_height_pos_factor += 1.5 / i
-
-    # Xác định vị trí của chữ khi chữ nhỏ
-    text_height_pos_factor += origin_font/font_size - 1
-    print(text_height_pos_factor)
-
-    # Nếu có nhiều dòng chữ sẽ nhỏ thêm
-    for i in range(1, len(lines)):
-        font_size -= int(40 * ratio)
-        print("Giảm: ", font_size)
-
+    # Chỉnh font lại sau khi đã có kích cỡ mới
     font = ImageFont.truetype("Bungee.ttf", font_size)
 
     # Vẽ văn bản lên ảnh
-    draw.multiline_text((text_len, frame_height // text_height_pos_factor), text, font=font, fill="white", anchor="ms", spacing=0, stroke_width=10, stroke_fill="black", align="center")
+    draw.multiline_text((text_len, frame_height // text_height_pos_factor), text, font=font, fill="white", anchor="ms", spacing=0, stroke_width=font_size//20, stroke_fill="black", align="center")
     
     # Lưu ảnh đã chỉnh sửa
     img.save("output_image.jpg")              
@@ -124,7 +105,9 @@ def add_text_to_image(image_path, text):
 
 if __name__ == "__main__":
 
-    add_text_to_image("sample.jpg", "Xin chào!TTTTTTTT\nTTTTTAbc123123123\n9128AAAAAAAAAA")
-    # Xin chào! Tất cả mọi người"
+    add_text_to_image("sample.jpg", "Xin chào!\n Tất cả mọi người, lại là mình đâyyyy mình hôm nay rất vui")
+    # Xin chào! Tất cả mọi người
+    # TTTTT
+    # Xin chào!TTTTTTTTTTTTTTTTTT TT
 
     print("Chuỗi đã được thêm vào ảnh. Ảnh mới đã được lưu với tên 'output_image.jpg'.")
