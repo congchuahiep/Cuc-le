@@ -6,3 +6,4 @@ output_image copy.jpg
 sample-11.jpg
 .gitignore
 demo.py
+demo_save.jpg
