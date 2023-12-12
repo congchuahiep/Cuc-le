@@ -31,7 +31,7 @@ def add_frame_to_image(img, color_name="white", position="top", text="", style="
     return img_new
 
 # Thêm chữ vào ảnh
-def add_text_to_image(img, text, position="top", frame=False, font_size=0):
+def add_text_to_image(img, text, position="top", font_size=0, align="center"):
     
     # Tính độ dài chữ
     text_count = len(text)
@@ -100,22 +100,35 @@ def add_text_to_image(img, text, position="top", frame=False, font_size=0):
     font_size = int(font_size)
     font = ImageFont.truetype("Bungee.ttf", font_size)
 
-    # Vẽ văn bản lên ảnh
-    pos_text_height = {}
+    # Xác định vị trí in text
+    pos_text_width = {
+        "left": img.width // 25 + draw.textlength(text, font) // 2,
+        "center": img.width / 2,
+        "right": img.width - img.width // 25 - draw.textlength(text, font) // 2,
+    }
+
+    pos_text_height = {
+        "top": img.height * 1 / 25,
+        "middle": img.height * 1 / 2,
+    }
+
+    anchor = {
+        "top": "ma",
+        "middle": "mm",
+        "bottom": "mm"
+    }
+
     if position == "bottom":
         try:
             pos_text_height["bottom"] = img.height * (7 - len(lines)) / (8 - len(lines))
         except:
             pos_text_height["bottom"] = 0
-        draw.multiline_text((img.width / 2, pos_text_height[position]), text, font=font, fill="white", anchor="mm", spacing=font_size//6, stroke_width=font_size//20, stroke_fill="black", align="center")
+    # Nếu người dùng một position bậy bạ
+    elif position != "top" and position != "middle":
+        position = "top"
 
-    elif position == "middle":
-        pos_text_height["middle"] = img.height * 1 / 2
-        draw.multiline_text((img.width / 2, pos_text_height[position]), text, font=font, fill="white", anchor="mm", spacing=font_size//6, stroke_width=font_size//20, stroke_fill="black", align="center")
-    else:
-        pos_text_height["top"] = img.height * 1 / 25
-        draw.multiline_text((img.width / 2, pos_text_height[position]), text, font=font, fill="white", anchor="ma", spacing=font_size//6, stroke_width=font_size//20, stroke_fill="black", align="center")
-    
+    draw.multiline_text((pos_text_width[align], pos_text_height[position]), text, font=font, fill="white", anchor=anchor[position], spacing=font_size//6, stroke_width=font_size//20, stroke_fill="black", align=align)
+
     # [For Testing] Vị trí box chữ
     # box_left, box_top, box_right, box_bottom = draw.multiline_textbbox((img.width / 2, pos_text_height[position]), text, font=font, anchor="mm", spacing=font_size//6, stroke_width=font_size//20, align="center")
     # draw.rectangle([(box_left, box_top), (box_right, box_bottom)], outline="red", width=10)

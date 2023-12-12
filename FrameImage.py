@@ -1,14 +1,13 @@
 from PIL import Image, ImageDraw, ImageFont
 import color, TextImage
 
-def what(img, position="top", text="", font_size=0):
+def what(img, text="", font_size=0):
     img_new = Image.new('RGB', (img.width, img.height), color.colors["black"])
     out_width = img.width
     out_height = img.height
 
     img = img.resize((int(0.7*img.width), int(0.7*img.height)))
     in_width = img.width
-    in_height = img.height
 
     gap = (out_width - in_width) // 2
     gap_top = out_height // 20
@@ -42,7 +41,7 @@ def surround(img, color_name="white", position="top", text="", font_size=0):
 
     img_with_border.paste(img, (gap, gap_top))
 
-    img_text = Image.new('RGB', (out_width, out_height // 3), background_color)
+    img_text = Image.new('RGBA', (out_width, out_height // 3), (0, 0, 0, 0))
     img_new = Image.new('RGB', (out_width, out_height + out_height // 3), background_color)
 
     # In chữ lên frame

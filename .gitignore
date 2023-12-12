@@ -7,3 +7,5 @@ sample-11.jpg
 .gitignore
 demo.py
 demo_save.jpg
+watermark.png
+output.jpg
