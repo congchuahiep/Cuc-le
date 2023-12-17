@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
-import color, FrameImage
+import FrameImage
 
 # Mở ảnh
 def open_image(image_path):
@@ -47,7 +47,7 @@ def add_text_to_image(img, text, position="top", font_size=0, align="center"):
     # Tìm thử xem, với kích cỡ của ảnh và kích cỡ font thì một dòng có thể chứa tối đa bao nhiêu từ
     demo_text = 'w'
     max_letter_in_line = 0
-    font = ImageFont.truetype("Bungee.ttf", font_size // 3)
+    font = ImageFont.truetype("font/Bungee.ttf", font_size // 3)
     while draw.textlength(demo_text[:max_letter_in_line], font) < img.width - img.width * 0.1:
         demo_text += 'm'
         max_letter_in_line += 1
@@ -67,7 +67,7 @@ def add_text_to_image(img, text, position="top", font_size=0, align="center"):
         else:
             text += ' '
 
-    font = ImageFont.truetype("Bungee.ttf", font_size)
+    font = ImageFont.truetype("font/Bungee.ttf", font_size)
 
     # Tìm dòng dài nhất trong chuỗi để làm mẫu tham chiếu cho các dòng khác
     lines = text.split('\n')
@@ -98,14 +98,17 @@ def add_text_to_image(img, text, position="top", font_size=0, align="center"):
     
     # Chỉnh font lại sau khi đã có kích cỡ mới
     font_size = int(font_size)
-    font = ImageFont.truetype("Bungee.ttf", font_size)
+    font = ImageFont.truetype("font/Bungee.ttf", font_size)
 
     # Xác định vị trí in text
     pos_text_width = {
-        "left": img.width // 25 + draw.textlength(text, font) // 2,
         "center": img.width / 2,
-        "right": img.width - img.width // 25 - draw.textlength(text, font) // 2,
     }
+
+    if align == "left":
+        pos_text_width["left"] = img.width // 25 + draw.textlength(text, font) // 2
+    elif align == "right":
+        pos_text_width["right"] = img.width - img.width // 25 - draw.textlength(text, font) // 2,
 
     pos_text_height = {
         "top": img.height * 1 / 25,
@@ -146,5 +149,5 @@ def add_text_to_image(img, text, position="top", font_size=0, align="center"):
     return img
 
 # Xuất ảnh
-def render_picture(img):
-    img.save("output_image.jpg")
+def render_picture(img, name):
+    img.save(f"static/images/exports/{name}")

@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 import color, TextImage
 
 def what(img, text="", font_size=0):
@@ -15,13 +15,13 @@ def what(img, text="", font_size=0):
     img_new.paste(img, (gap, gap_top))
 
     draw = ImageDraw.Draw(img_new)
-    draw.rectangle([(gap, gap_top),(gap + img.width, gap_top + img.height)], outline="white", width=img.width//500)
+    draw.rectangle([(gap, gap_top),(gap + img.width, gap_top + img.height)], outline="white", width=img.width//300)
 
     img_new = TextImage.add_text_to_image(img_new, text=text, position="bottom", font_size=font_size)
 
     return img_new
 
-def surround(img, color_name="white", position="top", text="", font_size=0):
+def surround(img, color_name="white", position="None", text="", font_size=0):
     try: 
         background_color = color.colors[color_name]
     except:
@@ -41,6 +41,9 @@ def surround(img, color_name="white", position="top", text="", font_size=0):
 
     img_with_border.paste(img, (gap, gap_top))
 
+    if position == "None":
+        return img_with_border
+
     img_text = Image.new('RGBA', (out_width, out_height // 3), (0, 0, 0, 0))
     img_new = Image.new('RGB', (out_width, out_height + out_height // 3), background_color)
 
@@ -49,9 +52,9 @@ def surround(img, color_name="white", position="top", text="", font_size=0):
 
     if position == 'bottom':
         img_new.paste(img_with_border, (0, 0))
-        img_new.paste(img_text, (0, out_height))
-    else:
-        img_new.paste(img_text, (0, 0))
+        img_new.paste(img_text, (0, out_height), img_text)
+    elif position == 'top':
+        img_new.paste(img_text, (0, 0), img_text)
         img_new.paste(img_with_border, (0, out_height // 3))
     
     return img_new

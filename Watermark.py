@@ -1,5 +1,4 @@
 from PIL import Image, ImageDraw, ImageFont
-import color, FrameImage, TextImage
 
 # Mở watermark
 def add(watermark_path):
@@ -16,7 +15,7 @@ def text(text="", position="bottom-left"):
     # Tính độ dài chữ
     draw = ImageDraw.Draw(img_text)
     font_size = 110
-    font = ImageFont.truetype("Bungee.ttf", font_size)
+    font = ImageFont.truetype("font/Bungee.ttf", font_size)
 
     # Căn lề cho chữ
     align ={
@@ -116,7 +115,7 @@ def tum_lum(img, watermark):
     while (i * block < img.width * 2):
         j = 0
         k = i
-        while (j * block < img.height):
+        while (j * block < img.height * 2):
             if k * block < img.width or j * block < img.height:
                 img.paste(watermark, (j * block, k * block), mask)
             j += 1 + gap
