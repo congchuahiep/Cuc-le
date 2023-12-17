@@ -10,7 +10,7 @@
     ```
   - Tải flask
     ```
-    .venv\Scripts\activate
+    pip install Flask
     ```
 - Cài đặt flask session
   ```
