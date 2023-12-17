@@ -1,0 +1,103 @@
+body {
+    width: 90vw;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 19vw;
+    height: 100%;
+    outline: 1px solid #ced4da;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+p {
+    color: #212529;
+    font-size: 15px;
+}
+
+.content {
+    margin-left: 19vw;
+    width: 80vw;
+}
+
+.full {
+    width: 100%;
+    height: 100%;
+}
+
+.image-preview {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: #e9ecef;
+}
+
+.edit {
+    margin-bottom: 10px;
+}
+
+.dim {
+    background-color: #ced4da;
+    transition: all 0.1s ease-in;
+}
+
+.dim:hover {
+    background-color: #f8f9fa;
+}
+
+#image-preview {
+    width: 100%;
+    z-index: 1;
+}
+
+#drop-area {
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    text-align: center;
+}
+
+#img-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 10px dashed #ced4da;
+    object-fit: contain;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.1s ease-in;
+}
+
+#img-view:hover {
+    opacity: 1;
+    border: 10px dashed #adb5bd;
+    cursor: pointer;
+    /* transform: scale(1.01); */
+}
+
+#img-view img {
+    width: 100px;
+    height: 100px;
+}
+
+#img-view p {
+    font-size: 14px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}

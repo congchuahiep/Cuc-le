@@ -3,3 +3,9 @@ sample-91.jpg
 sample-9.jpg
 output_image.jpg
 output_image copy.jpg
+sample-11.jpg
+.gitignore
+demo.py
+demo_save.jpg
+watermark.png
+output.jpg
