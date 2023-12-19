@@ -1,18 +1,10 @@
-## Yêu cầu: 
-- Cài đặt flask
-  - Tạo môi trường
-    ```
-    py -3 -m venv .venv
-    ```
-  - Tạo biến môi trường
-    ```
-    .venv\Scripts\activate
-    ```
-  - Tải flask
-    ```
-    pip install Flask
-    ```
-- Cài đặt flask session
-  ```
-  pip install Flask-Session
-  ```
+# Cực lẹ
+"Cực lẹ" is a Vietnamese abvert, which means very fast! As its named, here is a quick-app for those who are too lazy to open up their photo editor.
+
+For now it's just do some simple task like write text and make watermark
+
+## Text
+Before
+![](/uploads/sillycat.jpg)
+After
+![](/static/images/exports/sillycat.jpg)
