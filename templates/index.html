@@ -1,112 +1,204 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cực lẹ</title>
-    <link rel="icon" type="image/x-icon" href="static/images/favicon.svg">
-    <link href="../static/style.css" rel="stylesheet">
-    <link href="../static/cheatsheet.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </head>
 
-  <body class="bg-body-tertiary">
-    <!-- Sidebar -->
-    <div class="sidebar bg-body-tertiary">
-      <div class="container text-left">
-        <h3 class="mt-3 mx-3">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-alt" viewBox="0 0 16 16">
-            <path d="M7 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m4.225 4.053a.5.5 0 0 0-.577.093l-3.71 4.71-2.66-2.772a.5.5 0 0 0-.63.062L.002 13v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4.5l-4.777-3.947z"/>
-          </svg>
-          Cực lẹ
-        </h3>
-        <p class="mt-3 mx-3">
-          "Cực lẹ" is a Vietnamese abvert, which means very fast! 
-          As its named, here is a quick-app for those 
-          who are too lazy to open up their photo editor.
-        </p>
-      </div>
-      <div class="container">
-        <hr>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cực lẹ</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.svg">
+  <link href="../static/style.css" rel="stylesheet">
+  <!-- <link href="../static/cheatsheet.css" rel="stylesheet"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-body-tertiary">
+  <!-- Sidebar -->
+  <div class="sidebar bg-body-tertiary">
+    <div class="container text-left">
+      <h3 class="mt-3 mx-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-image-alt"
+          viewBox="0 0 16 16">
+          <path
+            d="M7 2.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0m4.225 4.053a.5.5 0 0 0-.577.093l-3.71 4.71-2.66-2.772a.5.5 0 0 0-.63.062L.002 13v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4.5l-4.777-3.947z" />
+        </svg>
+        Cực lẹ
+      </h3>
+      <p class="mt-3 mx-3">
+        "Cực lẹ" is a Vietnamese abvert, which means very fast!
+        As its named, here is a quick-app for those
+        who are too lazy to open up their photo editor.
+      </p>
     </div>
-    <div class="content py-4">
-      <div class="row p-5">
-        <div class="col p-2">
-          <form id="edit-image">
-            <div class="row">
-              <div class="col-3">
-                <label for="edit-top" class="form-label">Frame</label>
-                <select class="edit form-select" id="edit-frame" disabled>
-                  <option selected value="None">None</option>
-                  <option value="add">Add</option>
-                  <option value="surround">Portfolio</option>
-                  <option value="what">What?</option>
+    <div class="container">
+      <hr>
+    </div>
+    <div class="container" style="width: 80%;">
+      <span class="mt-3 ps-3 sidebarLink">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-pencil-fill mx-1 mb-1" viewBox="0 0 16 16">
+            <path
+              d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+          </svg>
+          Edit
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+          style="margin-left: auto; margin-right: 3px; margin-bottom: auto; margin-top: auto; opacity: 0.7;">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span>
+      <span class="mt-3 ps-3 sidebarLink">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-body-text mx-1 mb-1" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5" />
+          </svg>
+          Text
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+          style="margin-left: auto; margin-right: 3px; margin-bottom: auto; margin-top: auto; opacity: 0.7;">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span>
+      <span class="mt-3 ps-3 sidebarLink">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-columns-gap mx-1 mb-1" viewBox="0 0 16 16">
+            <path
+              d="M6 1v3H1V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm14 12v3h-5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM6 8v7H1V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm14-6v7h-5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z" />
+          </svg>
+          Frame
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+          style="margin-left: auto; margin-right: 3px; margin-bottom: auto; margin-top: auto; opacity: 0.7;">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span>
+      <span class="mt-3 ps-3 sidebarLink">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pip mx-1 mb-1"
+            viewBox="0 0 16 16">
+            <path
+              d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z" />
+            <path d="M8 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z" />
+          </svg>
+          Watermark
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16"
+          style="margin-left: auto; margin-right: 3px; margin-bottom: auto; margin-top: auto; opacity: 0.7;">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div class="content py-4">
+    <div class="row p-5 mt-3">
+      <div class="col-md p-2">
+        <form id="edit-image">
+          <div class="row">
+            <div class="col-3">
+              <label for="edit-top" class="form-label">Frame</label>
+              <select class="edit form-select" id="edit-frame" disabled>
+                <option selected value="None">None</option>
+                <option value="add">Add</option>
+                <option value="surround">Portfolio</option>
+                <option value="what">What?</option>
+              </select>
+            </div>
+            <div class="col-9">
+              <label for="edit-top" class="form-label">Text</label>
+              <input type="text" class="edit form-control" id="edit-top" placeholder="Top lines" autocomplete="off"
+                disabled>
+              <input type="text" class="edit form-control" id="edit-middle" placeholder="Middle lines"
+                autocomplete="off" disabled>
+              <input type="text" class="edit form-control" id="edit-bottom" placeholder="Bottom lines"
+                autocomplete="off" disabled>
+            </div>
+          </div>
+          <hr>
+          <label for="edit-input-watermark" class="form-label">Watermark</label>
+          <div class="row">
+            <div class="input-group">
+              <input type="file" accept="image/*" class="form-control" id="edit-input-watermark"
+                aria-describedby="cancel-upload-watermark" aria-label="Upload" disabled>
+              <button class="btn btn-outline-danger" type="button" id="cancel-upload-watermark"
+                onclick="clearFileInput()" disabled>Cancel</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col text-center">
+              or
+            </div>
+          </div>
+          <div class="row">
+            <div class="col p-1 px-5">
+              <input type="text" class="edit form-control" id="edit-text-watermark" placeholder="Text" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="input-group edit">
+                <label class="input-group-text" for="setWatermarkLayout">Layout</label>
+                <select class="form-select" id="setWatermarkLayout" disabled>
+                  <option selected value="conner">Conner</option>
+                  <option value="tum lum">Ranning</option>
+                  <option value="big one">Overlay</option>
                 </select>
               </div>
-              <div class="col-9">
-                <label for="edit-top" class="form-label">Text</label>
-                <input type="text" class="edit form-control" id="edit-top" placeholder="Top lines" autocomplete="off" disabled>
-                <input type="text" class="edit form-control" id="edit-middle" placeholder="Middle lines" autocomplete="off" disabled>
-                <input type="text" class="edit form-control" id="edit-bottom" placeholder="Bottom lines" autocomplete="off" disabled>
-              </div>
             </div>
-            <label for="edit-input-watermark" class="form-label">Watermark</label>
-            <div class="row ms-2">
+            <div class="col">
               <div class="input-group edit">
-                <input type="file" accept="image/*" class="form-control" id="edit-input-watermark" aria-describedby="cancel-upload-watermark" aria-label="Upload" disabled>
-                <button class="btn btn-outline-danger" type="button" id="cancel-upload-watermark" onclick="clearFileInput()" disabled>Cancel</button>
+                <label class="input-group-text" for="setWatermarkPosition">Position</label>
+                <select class="form-select" id="setWatermarkPosition" disabled>
+                  <option selected value="bottom-left">Bottom left</option>
+                  <option value="bottom-right">Bottom right</option>
+                  <option value="top-left">Top left</option>
+                  <option value="top-right">Top right</option>
+                </select>
               </div>
             </div>
-            <div class="row ms-2">
-              <div class="col-3 text-end">
-                or
+          </div>
+        </form>
+      </div>
+      <div class="col px-sm-5 p-1">
+        <div class="image-preview rounded-5">
+          <form id="upload-image" action="/upload" method="post" enctype="multipart/form-data" class="full">
+            <label for="input-file" id="drop-area">
+              <input type="file" accept="image/*" id="input-file" hidden>
+              <div id="img-view" src="">
+                <img src="/static/images/cloud-arrow-up.svg">
+                <p>Drag and drop or click here<br>to upload image</p>
               </div>
-              <div class="col-9">
-                <input type="text" class="edit form-control" id="edit-text-watermark" placeholder="Text" disabled>
-              </div>
-            </div>
-            <div class="row ms-2">
-              <div class="col">
-                <div class="input-group edit">
-                  <label class="input-group-text" for="setWatermarkLayout">Layout</label>
-                  <select class="form-select" id="setWatermarkLayout" disabled>
-                    <option selected value="conner">Conner</option>
-                    <option value="tum lum">Ranning</option>
-                    <option value="big one">Overlay</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col">
-                <div class="input-group edit">
-                  <label class="input-group-text" for="setWatermarkPosition">Position</label>
-                  <select class="form-select" id="setWatermarkPosition" disabled>
-                    <option selected value="bottom-left">Bottom left</option>
-                    <option value="bottom-right">Bottom right</option>
-                    <option value="top-left">Top left</option>
-                    <option value="top-right">Top right</option>
-                  </select>
-                </div>
-              </div>
-            </div>
+            </label>
           </form>
         </div>
-        <div class="col px-sm-5 p-1">      
-          <div class="image-preview rounded-5">
-            <form id="upload-image" action="/upload" method="post" enctype="multipart/form-data" class="full">
-              <label for="input-file" id="drop-area">
-                <input type="file" accept="image/*" id="input-file" hidden>
-                <div id="img-view">
-                  <img src="/static/images/cloud-arrow-up.svg">
-                  <p>Drag and drop or click here<br>to upload image</p>
-                </div>
-              </label>
-            </form>
-          </div>
-        </div>
+        <br>
+        <form class="d-grid gap-2" action="{{url_for('download')}}">
+          <button type="submit" class="button btn btn-outline-success rounded-5" id="downloadButton" disabled>
+            Download
+          </button>
+        </form>
       </div>
     </div>
-    <script src="../static/dropimage.js"></script>
-  </body>
+    <div class="row p-5 mt-3">
+      <!-- <img src="http://127.0.0.1:5000/edit/?img=https://i.imgur.com/fqSwMFB.jpeg&top=xinchao"> -->
+    </div>
+  </div>
+  <script src="../static/dropimage.js"></script>
+  <script src="../static/contenttable.js"></script>
+</body>
+
 </html>
