@@ -1,10 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import FrameImage
 
-# Mở ảnh
-def open_image(image_path):
-    img = Image.open(image_path)
-    return img
 
 # Xác định kích cỡ Font ban đầu
 def calculate_font_size(img):
@@ -137,17 +133,13 @@ def add_text_to_image(img, text, position="top", font_size=0, align="center"):
     # draw.rectangle([(box_left, box_top), (box_right, box_bottom)], outline="red", width=10)
 
     # [For Testing] Ghi các thông số
-    # print('img.width', img.width)
-    # print('img.height', img.height)
-    # print("font size", font_size)
-    # print("origin_font_size", origin_font_size)
-    # print("text_count", text_count)
-    # print("max_text_count", max_text_count)
-    # print("max_letter_in_line", max_letter_in_line)
+    print('img.width', img.width)
+    print('img.height', img.height)
+    print("font size", font_size)
+    print("origin_font_size", origin_font_size)
+    print("text_count", text_count)
+    print("max_text_count", max_text_count)
+    print("max_letter_in_line", max_letter_in_line)
     
     # Lưu ảnh đã chỉnh sửa
     return img
-
-# Xuất ảnh
-def render_picture(img, name):
-    img.save(f"static/images/exports/{name}")
