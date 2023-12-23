@@ -7,6 +7,7 @@ const form = document.getElementById("edit-image");
 const inputWatermark = document.getElementById("edit-input-watermark");
 const cancelWatermark = document.getElementById("cancel-upload-watermark");
 const selectFrame = document.getElementById("edit-frame");
+const downloadButton = document.getElementById("downloadButton")
 
 
 let debounceTimer;
@@ -71,7 +72,6 @@ function uploadImage() {
 
         // Upload thành công sẽ mở form
         var openForm = document.querySelectorAll('[id^="edit-"]');
-
         openForm.forEach(function (openForm) {
           openForm.disabled = false;
         });
@@ -212,7 +212,7 @@ function autoSubmitForm() {
       setWatermarkPosition.disabled = true;
   }
 
-
+  downloadButton.disabled = false;
   // Sử dụng Fetch API gửi tín hiệu lên server
   fetch('/update_data', {
     method: 'POST',
@@ -223,10 +223,11 @@ function autoSubmitForm() {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      console.log(data);
+      const token = data.token;
       const imgElement = new Image();
       const randomParam = Math.random();
-      imgElement.src = `static/images/exports/${nameImage}?random=${randomParam}`;
+      imgElement.src = `static/images/exports/${nameImage}?random=${randomParam}&token=${token}`;
       console.log(imgElement.src);
       imgElement.onload = function () {
         imageView.style.backgroundImage = `url(${imgElement.src})`;
@@ -235,13 +236,3 @@ function autoSubmitForm() {
     })
     .catch(error => console.error('Error:', error));
 }
-
-window.addEventListener('unload', function (event) {
-  fetch('/cleanup', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ action: 'cleanup' }),
-  });
-});

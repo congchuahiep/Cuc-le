@@ -1,6 +1,3 @@
-body {
-    width: 90vw;
-}
 
 .sidebar {
     position: fixed;
@@ -10,7 +7,8 @@ body {
     height: 100%;
     outline: 1px solid #ced4da;
     z-index: 1;
-    overflow-x: hidden;
+    overflow: auto;
+    /* overflow-x: hidden; */
 }
 
 p {
@@ -19,7 +17,7 @@ p {
 }
 
 .content {
-    margin-left: 19vw;
+    margin-left: 18vw;
     width: 80vw;
 }
 
@@ -45,6 +43,18 @@ p {
 
 .dim:hover {
     background-color: #f8f9fa;
+}
+
+.sidebarLink {
+    display: flex;
+    padding: 5px;
+    transition: all 0.15s ease-in;
+}
+
+.sidebarLink:hover {
+    background-color: #ced4da;
+    border-radius: 20px;
+    box-shadow: #adb5bd;
 }
 
 #image-preview {
@@ -92,12 +102,24 @@ p {
     font-size: 14px;
 }
 
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
 
-    .sidenav a {
-        font-size: 18px;
+@media screen and (max-width: 960px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
     }
+    .sidebar a {float: left;}
+    .content {
+        margin-left: 0;
+        width: 100vw;
+    }
+  }
+  
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
 }
