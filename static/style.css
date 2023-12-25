@@ -8,7 +8,22 @@
     outline: 1px solid #ced4da;
     z-index: 1;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     /* overflow-x: hidden; */
+}
+
+.sidebar .sidebarHead {
+    flex: 1;
+}
+
+.sidebar .sidebarContent {
+    flex: 3;
+}
+
+.sidebar .sidebarFotter {
+    padding: 10px;
 }
 
 p {
