@@ -1,5 +1,5 @@
 # Cực lẹ
-"Cực lẹ" is a Vietnamese abvert, which means very fast! As its named, here is a quick-app for those who are too lazy to open up their photo editor.
+"Cực lẹ" is a Vietnamese abverb, which means very fast! As its named, here is a quick-app for those who are too lazy to open up their photo editor.
 
 For now it's just do some simple task like write text and make watermark
 
@@ -150,3 +150,29 @@ Reserved URL characters can be included using escape patterns:
 - flask_sessions - For web browser sessions
 - Os - For data access
 - Io - For open url to bitmap
+
+# Installing
+First, download repository and run some command below to install some necessary library:
+ #### Create an environment
+ ```
+ $ python3 -m venv .venv
+ ```
+ #### Activate the environment
+ ```
+ $ .venv/bin/activate
+ ```
+ #### Installing flask
+ ```
+ $ pip install Flask
+ ```
+ #### Installing Pillow
+ ```
+ $ python3 -m pip install --upgrade Pillow
+ ```
+
+After install those library, start program by running command:
+```
+$ flask --app app --debug run
+```
+Your program will start running on `http://127.0.0.1:5000`
+
