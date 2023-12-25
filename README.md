@@ -62,6 +62,80 @@ You can add watermark as text or image
  </tr>
 </table>
 
+## URL generate
+There's another way to generate image much faster
+
+By using URL with this format
+```
+https://cuc-le.onrender.com/edit/?img=https://www.example.com/&<attribute>=<value>
+```
+
+Example:
+```
+https://cuc-le.onrender.com/edit/?img=https://i.imgur.com/R9QlBVy.jpeg&bot=Hello-everyone
+```
+
+<table border="0">
+ <tr>
+    <td><img src='https://cuc-le.onrender.com/edit/?img=https://i.imgur.com/R9QlBVy.jpeg&bot=Hello-everyone' width='400'>
+ </tr>
+</table>
+ 
+
+For `?img=` is your URL image, which required
+
+After that is a `&` syntax, which is connect your attribute. And a `=` is there attribute value
+
+### Attributes
+
+#### Text position
+  
+| Syntax | Description                        |
+|--------|------------------------------------|
+|`top`   | Write text from top of the image   |
+|`mid`   | Write text from middle of the image|
+|`bot`   | Write text from bottom of the image|
+
+```
+https://cuc-le.onrender.com/edit/?img=https://i.imgur.com/R9QlBVy.jpeg&top=hello-everyone&mid=hahahahah&bot=~l3
+```
+
+You can see there are some syntax kinda diffrent, because url doesn't allow some special charactor
+
+In URLs, spaces can be inserted using underscores or dashes:
+
+- underscore (`_`) → space (` `)
+- dash (`-`) → space (` `)
+- 2 underscores (`__`) → underscore (`_`)
+- 2 dashes (`--`) → dash (`-`)
+- tilde + N (`~n`) → newline character
+
+Reserved URL characters can be included using escape patterns:
+
+- tilde + Q (`~q`) → question mark (`?`)
+- tilde + A (`~a`) → ampersand (`&`)
+- tilde + P (`~p`) → percentage (`%`)
+- tilde + H (`~h`) → hashtag/pound (`#`)
+- tilde + S (`~s`) → slash (`/`)
+- tilde + B (`~b`) → backslash (`\`)
+- tilde + L (`~l`) → less-than sign (`<`)
+- tilde + G (`~g`) → greater-than sign (`>`)
+- 2 single quotes (`''`) → double quote (`"`)
+  
+#### Frame
+| Syntax | Description | Valid value              |
+|--------|-------------|--------------------------|
+|`fr`    | Add frame   |`add`, `portfolio`, `what`|
+
+#### Watermark
+| Syntax | Description                    | Valid value                                          |
+|--------|--------------------------------|------------------------------------------------------|
+|`wtk`   | Add watermark by URL           |image url                                             |
+|`wtkt`  | Add watermark by custom text   |text                                                  |
+|`wtkl`  | Custom layout of watermark     |`conner`, `ranning`, `overlay`                        |
+|`wtkp`  | Custom position of watermark   |`bottom-left`, `bottom-right`, `top-left`, `top-right`|
+
+
 ## Tech Stack
 - Python
 - HTML
