@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request, url_for, jsonify, session, send_from_directory, send_file
 from flask_session import Session
+from PIL import Image
 import secrets
 import main
 import os
@@ -113,8 +114,14 @@ def check_image(filename):
     
     return 'Unauthorized'
 
+# Edit ảnh nhanh bằng URL
 @app.route('/edit/', methods=['GET'])
 def edit():
+
+    # Xét có hợp lệ hay không, nếu chứa url ảnh thì hợp lệ, không có thì cúc
+    if request.args.get('img') == None:
+        return redirect("/")
+
     data = {
         "img": request.args.get('img'),
         "top": request.args.get('top'),
@@ -140,8 +147,6 @@ def edit():
                     watermark_pos=data["watermarkPos"])
     
     print("image_filename server:", image_filename)
-    image_url = url_for('static', filename=f"edits/{image_filename}")
-
     return send_file(f"static/edits/{image_filename}")
 
 
