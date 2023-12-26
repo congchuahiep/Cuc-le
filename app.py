@@ -129,8 +129,8 @@ def edit():
         "bottom": request.args.get('bot'),
         "frame": request.args.get('fr'),
         "watermark": request.args.get('wtk'),
-        "watermarkText": request.args.get('wtt'),
-        "watermarkFrame": request.args.get('wtkf'),
+        "watermarkText": request.args.get('wtkt'),
+        "watermarkLayout": request.args.get('wtkl'),
         "watermarkPos": request.args.get('wtkp'),
     }
 
@@ -143,7 +143,7 @@ def edit():
                     frame=data["frame"], 
                     watermark_img=data["watermark"],
                     watermark_text=data["watermarkText"], 
-                    watermark_type=data["watermarkFrame"],
+                    watermark_type=data["watermarkLayout"],
                     watermark_pos=data["watermarkPos"])
     
     print("image_filename server:", image_filename)

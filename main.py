@@ -114,7 +114,7 @@ def edit_photo_url(img, text_top="", text_middle="", text_bottom="", frame ="Non
             img = TextImage.add_frame_to_image(img, position="bottom", text=text_bottom, style="add")
 
     # Nếu frame là surround (bao quanh như portfolio)
-    elif frame == "surround":
+    elif frame == "surround" or frame == "portfolio":
         if text_top != None:
             text_top = spellCheck(text_top)
             img = TextImage.add_frame_to_image(img, position="top", text=text_top, style="surround")
@@ -147,9 +147,9 @@ def edit_photo_url(img, text_top="", text_middle="", text_bottom="", frame ="Non
         elif watermark_text != None:
             watermark_text = spellCheck(watermark_text)
             watermark = Watermark.text(text=watermark_text)
-        if watermark_type == "tum lum":
+        if watermark_type == "tum lum" or watermark_type == "rainning":
             img = Watermark.tum_lum(img, watermark)
-        elif watermark_type == "big one":
+        elif watermark_type == "big one" or watermark_type == "overlay":
             img = Watermark.big_one(img, watermark=watermark)
         else:
             img = Watermark.conner(img, watermark=watermark, position=watermark_pos)
@@ -191,6 +191,7 @@ def edit_photo_url(img, text_top="", text_middle="", text_bottom="", frame ="Non
 #   dùng nhập được
 def spellCheck(s):
     for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
-                ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
+                ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\\", "~b"),
+                ("\"", "''"), ("<", "~l"), (">", "~g")]:
         s = s.replace(new, old)
     return s
